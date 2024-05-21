@@ -5,6 +5,8 @@ import com.example.userRegister.dto.UserDTO;
 import com.example.userRegister.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.web.servlet.MockMvc;
 
 @WebMvcTest(UserController.class)
 public class UserControllerTest {
@@ -25,7 +27,7 @@ public class UserControllerTest {
 
         mockMvc.perform(post("/api/users/register")
                         .contentType("application/json")
-                        .content("{\"name\":\"John Doe\",\"email\":\"john.doe@example.com\",\"password\":\"password123\",\"confirmPassword\":\"password123\"}"))
+                        .content("{\"name\":\"Maria Antônia\",\"email\":\"maria.antonia@gmail.com\",\"password\":\"senha123\",\"confirmPassword\":\"senha123\"}"))
                 .andExpect(status().isOk());
     }
 
@@ -35,11 +37,11 @@ public class UserControllerTest {
         userDTO.setName("João Antônio");
         userDTO.setEmail("joao.antonio@example.com");
         userDTO.setPassword("senha123");
-        userDTO.setConfirmPassword("senha124");
+        userDTO.setConfirmPassword("senha123");
 
         mockMvc.perform(post("/api/users/register")
                         .contentType("application/json")
-                        .content("{\"name\":\"John Doe\",\"email\":\"john.doe@example.com\",\"password\":\"password123\",\"confirmPassword\":\"password124\"}"))
+                        .content("{\"name\":\"João Antônio\",\"email\":\"joao.antonio@example.com\",\"password\":\"senha123\",\"confirmPassword\":\"senha123\"}"))
                 .andExpect(status().isBadRequest());
     }
 }
