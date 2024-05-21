@@ -43,10 +43,10 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.valid) {
       this.userService.register(this.registerForm.value).subscribe(
         response => {
-          alert('User registered successfully');
+          alert('Usuário cadastrado com sucesso');
         },
         error => {
-          alert('Error registering user');
+          alert('Erro ao registrar usuário');
         }
       );
     }
