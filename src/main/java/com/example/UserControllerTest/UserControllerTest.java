@@ -4,6 +4,7 @@ import com.example.userRegister.controller.UserController;
 import com.example.userRegister.dto.UserDTO;
 import com.example.userRegister.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 
 @WebMvcTest(UserController.class)
 public class UserControllerTest {
